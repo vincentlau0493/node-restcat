@@ -1,0 +1,55 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'https://github.com/vincentlau0493/node-sleepycat.git' ]
+2 info using npm@1.4.3
+3 info using node@v0.10.26
+4 verbose readDependencies using package.json deps
+5 verbose cache add [ 'https://github.com/vincentlau0493/node-sleepycat.git', null ]
+6 verbose cache add name=undefined spec="https://github.com/vincentlau0493/node-sleepycat.git" args=["https://github.com/vincentlau0493/node-sleepycat.git",null]
+7 verbose parsed url { protocol: 'https:',
+7 verbose parsed url   slashes: true,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: 'github.com',
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: 'github.com',
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: '/vincentlau0493/node-sleepycat.git',
+7 verbose parsed url   path: '/vincentlau0493/node-sleepycat.git',
+7 verbose parsed url   href: 'https://github.com/vincentlau0493/node-sleepycat.git' }
+8 silly lockFile c0dd7764-incentlau0493-node-sleepycat-git https://github.com/vincentlau0493/node-sleepycat.git
+9 verbose lock https://github.com/vincentlau0493/node-sleepycat.git /Users/user/.npm/c0dd7764-incentlau0493-node-sleepycat-git.lock
+10 verbose addRemoteTarball [ 'https://github.com/vincentlau0493/node-sleepycat.git', null ]
+11 info retry fetch attempt 1 at 14:05:36
+12 verbose fetch to= /var/folders/04/1v6btckn4t97z6x4qnglktrc0000gn/T/npm-25453-q7NMA0ug/1415732736108-0.2529068167787045/tmp.tgz
+13 http GET https://github.com/vincentlau0493/node-sleepycat.git
+14 http 200 https://github.com/vincentlau0493/node-sleepycat.git
+15 verbose tar unpack /var/folders/04/1v6btckn4t97z6x4qnglktrc0000gn/T/npm-25453-q7NMA0ug/1415732736108-0.2529068167787045/tmp.tgz
+16 silly lockFile 0ceb02ab-36108-0-2529068167787045-package tar:///var/folders/04/1v6btckn4t97z6x4qnglktrc0000gn/T/npm-25453-q7NMA0ug/1415732736108-0.2529068167787045/package
+17 verbose lock tar:///var/folders/04/1v6btckn4t97z6x4qnglktrc0000gn/T/npm-25453-q7NMA0ug/1415732736108-0.2529068167787045/package /Users/user/.npm/0ceb02ab-36108-0-2529068167787045-package.lock
+18 silly lockFile 318042a8-36108-0-2529068167787045-tmp-tgz tar:///var/folders/04/1v6btckn4t97z6x4qnglktrc0000gn/T/npm-25453-q7NMA0ug/1415732736108-0.2529068167787045/tmp.tgz
+19 verbose lock tar:///var/folders/04/1v6btckn4t97z6x4qnglktrc0000gn/T/npm-25453-q7NMA0ug/1415732736108-0.2529068167787045/tmp.tgz /Users/user/.npm/318042a8-36108-0-2529068167787045-tmp-tgz.lock
+20 silly gunzTarPerm modes [ '755', '644' ]
+21 error not a package /var/folders/04/1v6btckn4t97z6x4qnglktrc0000gn/T/npm-25453-q7NMA0ug/1415732736108-0.2529068167787045/tmp.tgz
+22 silly lockFile 0ceb02ab-36108-0-2529068167787045-package tar:///var/folders/04/1v6btckn4t97z6x4qnglktrc0000gn/T/npm-25453-q7NMA0ug/1415732736108-0.2529068167787045/package
+23 silly lockFile 0ceb02ab-36108-0-2529068167787045-package tar:///var/folders/04/1v6btckn4t97z6x4qnglktrc0000gn/T/npm-25453-q7NMA0ug/1415732736108-0.2529068167787045/package
+24 silly lockFile 318042a8-36108-0-2529068167787045-tmp-tgz tar:///var/folders/04/1v6btckn4t97z6x4qnglktrc0000gn/T/npm-25453-q7NMA0ug/1415732736108-0.2529068167787045/tmp.tgz
+25 silly lockFile 318042a8-36108-0-2529068167787045-tmp-tgz tar:///var/folders/04/1v6btckn4t97z6x4qnglktrc0000gn/T/npm-25453-q7NMA0ug/1415732736108-0.2529068167787045/tmp.tgz
+26 silly lockFile c0dd7764-incentlau0493-node-sleepycat-git https://github.com/vincentlau0493/node-sleepycat.git
+27 silly lockFile c0dd7764-incentlau0493-node-sleepycat-git https://github.com/vincentlau0493/node-sleepycat.git
+28 error Error: ENOENT, open '/var/folders/04/1v6btckn4t97z6x4qnglktrc0000gn/T/npm-25453-q7NMA0ug/1415732736108-0.2529068167787045/package/package.json'
+29 error If you need help, you may report this *entire* log,
+29 error including the npm and node versions, at:
+29 error     <http://github.com/npm/npm/issues>
+30 error System Darwin 12.5.0
+31 error command "node" "/usr/local/bin/npm" "install" "https://github.com/vincentlau0493/node-sleepycat.git"
+32 error cwd /Users/user/Desktop/node/package/sleepycat/example
+33 error node -v v0.10.26
+34 error npm -v 1.4.3
+35 error path /var/folders/04/1v6btckn4t97z6x4qnglktrc0000gn/T/npm-25453-q7NMA0ug/1415732736108-0.2529068167787045/package/package.json
+36 error code ENOENT
+37 error errno 34
+38 verbose exit [ 34, true ]
