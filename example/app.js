@@ -12,7 +12,7 @@ var app = express();
 
 var cattery = require('./cattery');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/myblog');
+mongoose.connect('mongodb://localhost/test');
 
 var db = mongoose.connection;
 db.once('open', function callback () {

@@ -37,9 +37,13 @@ var postCattery = sleepycat.create({
 
 //overwrite
 postCattery.objUpdate = function(data){
-
 	data.title = "* " + data.title;
+	return this.__proto__.objUpdate(data);
+}
 
+//overwrite
+postCattery.objCreate = function(data){
+	data.title =data.title + ' |new';
 	return this.__proto__.objUpdate(data);
 }
 
