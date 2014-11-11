@@ -1,4 +1,4 @@
-# express-restify-mongoose
+# node-sleepycat
 This library provides a REST interface based on mongoose and express.js.
 
 
@@ -107,10 +107,3 @@ GET http://localhost:3000/restful/api/bloglist/?title=Sleepycat      #for gettin
 GET http://localhost:3000/restful/api/bloglist/?limit=3     #for getting first three blogs
 GET http://localhost:3000/restful/api/bloglist/?limit=3&offset=3     #for getting three blogs beginning at 4 (offset means skip)
 ```
-
-
-
-
-
-
-
