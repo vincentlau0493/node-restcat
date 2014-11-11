@@ -1,11 +1,11 @@
-var sleepycat = require('../');
+var restcat = require('../');
 var model = require('./model');
 
-//configure sleepycat, (static variable)
-sleepycat.configure({namespace:'/sleepycat'});
+//configure restcat, (static variable)
+restcat.configure({namespace:'/restcat'});
 
 
-var userCattery = sleepycat.create({
+var userCattery = restcat.create({
 	catteryName:'userlist',
 	querySet: model.user.find({}), //find all
 	model:model.user
@@ -21,7 +21,7 @@ userCattery.dehydrate = function(data,self){
 }
 
 
-var postCattery = sleepycat.create({
+var postCattery = restcat.create({
 	catteryName: 'postlist',
 	querySet: model.entity.find({isExist:true}), //find exist
 	model: model.entity,

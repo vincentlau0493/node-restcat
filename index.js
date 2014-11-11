@@ -1,12 +1,12 @@
-var Sleepycat = require('./lib/sleepycat');
+var Restcat = require('./lib/restcat');
 
 //factory
 exports.create = function(option) {
-	return new Sleepycat(option);
+	return new Restcat(option);
 }
 
 exports.configure = function(config) {
 	for(var c in config) {
-		Sleepycat[c] = config[c];
+		Restcat[c] = config[c];
 	}
 }

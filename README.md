@@ -1,5 +1,5 @@
-# node-sleepycat
-This library provides a REST interface based on mongoose and express.js.
+# node-restcat
+This library provides a REST interface based on mongoose and express.js, which is inspired by Tastypie of django.
 
 
 ## Getting started
@@ -7,7 +7,7 @@ This library provides a REST interface based on mongoose and express.js.
 First of all, please make sure your express and mongoose have been properly installed. In your shell, install with npm:
 
 ```sh
-npm install sleepycat
+npm install restcat
 ```
 
 Configure mongoose schemas in your code:
@@ -40,19 +40,19 @@ Create a file called cattery.js(whatever you want to name) from root directory, 
 //cattery.js
 //------------------------------
 
-var sleepycat = require('sleepycat');
+var restcat = require('restcat');
 var model = require('./model');
 
-//configure sleepycat, for url called
-sleepycat.configure({namespace:'/restful/api'});
+//configure restcat, for url called
+restcat.configure({namespace:'/restful/api'});
 
-var userCattery = sleepycat.create({
+var userCattery = restcat.create({
 	catteryName:'userlist', //configure specified url
 	querySet: model.user.find({}), //querySet with no filter
 	model:model.user //model
 });
 
-var blogCattery = sleepycat.create({
+var blogCattery = restcat.create({
 	catteryName: 'bloglist',
 	querySet: model.blog.find({isExist:true}), //querySet with existed blogs
 	model: model.blog,
@@ -63,7 +63,7 @@ exports.user = userCattery;
 
 ```
 
-After deploying model and sleepycat, invoke in app.js.
+After deploying model and restcat, invoke in app.js.
 
 ```javascript
 //app.js
@@ -103,7 +103,7 @@ GET http://localhost:3000/restful/api/bloglist/:id
 POST http://localhost:3000/restful/api/bloglist/           #for creating blog
 POST http://localhost:3000/restful/api/bloglist/:id        #for updating blog
 
-GET http://localhost:3000/restful/api/bloglist/?title=Sleepycat      #for getting blogs with specified title
+GET http://localhost:3000/restful/api/bloglist/?title=Restcat      #for getting blogs with specified title, and this query set will base on the one you defined in cattery.js
 GET http://localhost:3000/restful/api/bloglist/?limit=3     #for getting first three blogs
 GET http://localhost:3000/restful/api/bloglist/?limit=3&offset=3     #for getting three blogs beginning at 4 (offset means skip)
 ```

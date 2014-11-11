@@ -1,5 +1,5 @@
 {
-  "name": "sleepycat",
+  "name": "restcat",
   "version": "0.1.1",
   "description": "A RESTFUL api with Express.js and Mongoose",
   "main": "index.js",
@@ -11,11 +11,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vincentlau0493/node-sleepycat.git"
+    "url": "https://github.com/vincentlau0493/node-restcat.git"
   },
   "keywords": [
     "restful",
-    "api"
+    "api",
+    "express",
+    "mongoose"
   ],
   "dependencies": {
     "clone": "*",
@@ -28,7 +30,7 @@
   "author": "Jiayu Liu",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/vincentlau0493/node-sleepycat/issues"
+    "url": "https://github.com/vincentlau0493/node-restcat/issues"
   },
-  "homepage": "https://github.com/vincentlau0493/node-sleepycat"
+  "homepage": "https://github.com/vincentlau0493/node-restcat"
 }

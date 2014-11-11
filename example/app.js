@@ -37,7 +37,7 @@ app.use('/users', users);
 
 
 //----------------
-//Sleepycat
+//Restcat
 //----------------
 app.use(cattery.post.register());
 app.use(cattery.user.register());
