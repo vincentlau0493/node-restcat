@@ -4,7 +4,7 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var basicAuth = require('basic-auth');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -12,7 +12,7 @@ var app = express();
 
 var cattery = require('./cattery');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://localhost/myblog');
 
 var db = mongoose.connection;
 db.once('open', function callback () {
@@ -32,9 +32,32 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
+
+// var auth = function (req, res, next) {
+//   function unauthorized(res) {
+//     res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
+//     return res.send(401);
+//   };
+//   var user = basicAuth(req);
+//   console.log(user);
+//   // console.log(req.method);
+
+//   if (!user || !user.name || !user.pass) {
+//     return unauthorized(res);
+//   };
+
+//   if (user.name === 'foo' && user.pass === 'bar') {
+//     return next();
+//   } else {
+//     return unauthorized(res);
+//   };
+// };
+// app.use(auth);
+
 app.use('/', routes);
 app.use('/users', users);
-
 
 //----------------
 //Restcat

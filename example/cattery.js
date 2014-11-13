@@ -5,6 +5,10 @@ var model = require('./model');
 restcat.configure({namespace:'/restcat'});
 
 
+//authentication instance
+var oAuth = restcat.generateAuth(); // default-> user:admin, pass:admin
+
+
 var userCattery = restcat.create({
 	catteryName:'userlist',
 	querySet: model.user.find({}), //find all
@@ -32,6 +36,7 @@ var postCattery = restcat.create({
 			cattery: userCattery
 		}
 	],
+	authentication:oAuth
 
 });
 
