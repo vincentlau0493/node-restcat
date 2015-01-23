@@ -109,7 +109,21 @@ GET http://localhost:3000/restful/api/bloglist/?limit=3&offset=3     #for gettin
 ```
 
 
-## Options
+## Configuration Options
+
+#### namespace (Required)
+Avoids conflit with other routes
+
+```javascript
+
+restcat.configure({namespace:'/restful/api'});
+
+```
+
+
+
+
+## Cattery Options
 
 #### catteryName (Required)
 Generates the url referring to certain model based on cattery name.
@@ -156,10 +170,10 @@ Add authentication for accessing to the data this cattery referring to.
 // cattery.js
 // assuming you require restcat module
 //-----------------------------------------
-var oAuth = restcat.generateAuth();  //default name and pass are 'admin' for authentication, and authentication would be checked only when the request method isn't 'GET'
+var oAuth = restcat.authGenerator('authentication');  //default name and pass are 'admin' for authentication, and authentication would be checked only when the request method isn't 'GET'
 
 /* OR */
-var oAuth = restcat.generateAuth(function(username, password){
+var oAuth = restcat.authGenerator('authentication', function(username, password){
 
 	// code goes here...
 	// check user and password through database
@@ -181,7 +195,7 @@ var users = {
 }
 
 // define authentication instance
-var oAuth = restcat.generateAuth(function(user, pass){
+var oAuth = restcat.authGenerator('authentication', function(user, pass){
 	if(users[user] && users[user] == pass)
 		return true;
 
@@ -202,7 +216,7 @@ var userCattery = restcat.create({
 
 The authentication for each cattery or each route can be varied.
 
-```
+
 ###### example
 
 ```javascript
@@ -218,7 +232,7 @@ var users = {
 }
 
 // define authentication instance
-var blogOAuth = restcat.generateAuth(function(user, pass){
+var blogOAuth = restcat.authGenerator('authentication', function(user, pass){
 	if(users[user] && users[user] == pass)
 		return true;
 
@@ -241,7 +255,7 @@ blogOAuth.authenticate = function(req, res, next) {
 		return unauthorized(res);
 	};
 
-	// authCheck is the property of auth instance, which is the parameter of generateAuth
+	// authCheck is the property of auth instance, which is the parameter of authGenerator
 	if (this.authCheck(user.name,user.pass)) { 
 		return next();
 	} else {
@@ -258,7 +272,72 @@ var blogCattery = restcat.create({
 
 ```
 
+#### authorization (Optional)
+Add authorization for accessing to the data this cattery referring to, which is kind of the same as authentication
+
+###### generate authorization instance
+
+```javascript
+// cattery.js
+// assuming you require restcat module
+//-----------------------------------------
+var generalAnthorization = restcat.authGenerator('authorization');  //default always pass
+
+/* Customize your anthorization method */
+generalAnthorization.anthorize = function(req, res, next) {
+	
+	// code goes here...
+	// middleware
+}
+
+```
+
+###### example
+
+```javascript
+// cattery.js
+// assuming you require restcat module
+//-----------------------------------------
+
+var basicAuth = require('basic-auth'); // npm install basic-auth, for parsing header authorization
+
+var users = {
+	root: 'root', //name: pass
+	foo: 'bar' 
+}
+
+// define authentication instance
+var blogOAuth = restcat.authGenerator('authentication', function(user, pass){
+	if(users[user] && users[user] == pass)
+		return true;
+
+	return false;
+});
+var blogAuthorization = restcat.authGenerator('authorization');
+
+//customize authorization method
+blogAuthorization.authorize = function(req, res, next) {
+	if (!req.session.user_id) {
+		res.send('You are not authorized to view this page');
+	} else {
+		next();
+	}
+}
 
 
+var blogCattery = restcat.create({
+	catteryName: 'bloglist',
+	querySet: model.entity.find({isExist:true}), //find exist
+	model: model.entity,
+	authentication:blogOAuth,
+	authorization:blogAuthorization
+});
+
+```
+
+## Data Operation
+
+
+## Meta
 
 

@@ -2,11 +2,15 @@ var restcat = require('../');
 var model = require('./model');
 
 //configure restcat, (static variable)
-restcat.configure({namespace:'/restcat'});
+restcat.configure({
+	namespace:'/restcat',
+	debug: true
+});
 
 
 //authentication instance
-var oAuth = restcat.generateAuth(); // default-> user:admin, pass:admin
+var oAuth = restcat.authGenerator('authentication'); // default-> user:admin, pass:admin
+var generalAuthorization = restcat.authGenerator('authorization');
 
 
 var userCattery = restcat.create({
@@ -36,7 +40,8 @@ var postCattery = restcat.create({
 			cattery: userCattery
 		}
 	],
-	authentication:oAuth
+	authentication:oAuth,
+	authorization: generalAuthorization
 
 });
 
